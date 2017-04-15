@@ -1,4 +1,4 @@
-package com.rlaul.test.datastructures;
+package com.rlaul.datastructures;
 
 import java.util.Arrays;
 

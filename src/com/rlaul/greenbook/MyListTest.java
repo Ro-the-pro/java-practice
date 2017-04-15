@@ -1,4 +1,4 @@
-package com.rlaul.test.datastructures;
+package com.rlaul.greenbook;
 
 import static org.junit.Assert.assertEquals;
 
@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Test;
+
+import com.rlaul.datastructures.MyArrayList;
 
 /**
  * JUNIT test class to test the MyArrayList class and compare the results with OOTB ArrayList. 
