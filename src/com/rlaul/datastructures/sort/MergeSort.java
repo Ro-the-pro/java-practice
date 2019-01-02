@@ -9,7 +9,8 @@ class MergeSort
     // Second subarray is arr[mid+1..right] 
     void merge(int arr[], int left, int mid, int right) 
     { 
-        // Find sizes of two subarrays to be merged 
+    	System.out.println("Inside merge: left:"+left + " mid:"+mid+" right:"+right); 
+    	// Find sizes of two subarrays to be merged 
         int leftArrLen = mid - left + 1; 
         int rightArrLen = right - mid; 
   
@@ -64,18 +65,17 @@ class MergeSort
         } 
     } 
   
-    // Main function that sorts arr[left..right] using 
-    // merge() 
+    // Main function that sorts arr[left..right] using merge() 
     void sort(int arr[], int left, int right) 
     { 
         if (left < right) 
         { 
             // Find the middle point 
             int mid = (left+right)/2; 
-  
+            System.out.println("Inside sort left:"+left + " mid:"+mid+" right:"+right); 
             // Sort first and second halves 
             sort(arr, left, mid); 
-            sort(arr , mid+1, right); 
+            sort(arr, mid+1, right); 
   
             // Merge the sorted halves 
             merge(arr, left, mid, right); 
@@ -94,7 +94,7 @@ class MergeSort
     // Driver method 
     public static void main(String args[]) 
     { 
-        int arr[] = {12, 11, 13, 5, 6, 7}; 
+        int arr[] = {12, 11, 13, 5, 6, 7, 20}; 
   
         System.out.println("Given Array"); 
         printArray(arr); 
