@@ -5,8 +5,8 @@ import java.util.LinkedList;
 import java.util.Stack;
 	 
 //Use Stack
-	// Java program to print BFS traversal from a given source vertex.
-	// BFS(int s) traverses vertices reachable from s.
+	// Java program to print DFS traversal from a given source vertex.
+	// DFS(int s) traverses vertices reachable from s.
 	// This class represents a directed graph using adjacency list
 	// representation
 	public class MyDepthFirstSearch
@@ -29,14 +29,14 @@ import java.util.Stack;
 	        adj[v].add(w);
 	    }
 	 
-	    // prints BFS traversal from a given source s
+	    // prints DFS traversal from a given source s
 	    void DFS(int s)
 	    {
 	        // Mark all the vertices as not visited(By default
 	        // set as false)
 	        boolean visited[] = new boolean[V];
 	 
-	        // Create a stack for BFS
+	        // Create a stack for DFS
 	        //LinkedList<Integer> stack = new LinkedList<Integer>();
 	        Stack<Integer> stack = new Stack<>();
 	 

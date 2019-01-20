@@ -7,6 +7,12 @@ public class MyLinkedListNode {
 	public MyLinkedListNode last;
 	public int data;
 	
+	public MyLinkedListNode() {
+		data=0;
+		next = null; 
+		prev = null;
+	}
+	
 	public MyLinkedListNode(int d, MyLinkedListNode n, MyLinkedListNode p){
 		next = n; 
 		prev = p;
@@ -39,8 +45,8 @@ public class MyLinkedListNode {
 		}
 	}
 	
-	public MyLinkedListNode clone(MyLinkedListNode data){
+	public MyLinkedListNode clone(){
 		//TODO:method implementation
-		return data;
+		return this;
 	}
 }

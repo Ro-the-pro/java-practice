@@ -1,6 +1,8 @@
 package com.rlaul.greenbook;
 
+import com.rlaul.datastructures.MyLinkedListNode;
 
+//TODO : not tested
 public class Q_2_6 {
 
 	/**
@@ -11,23 +13,23 @@ public class Q_2_6 {
 
 	}
 	
-	public boolean isPalindrome(LinkedListNode node){
-		LinkedListNode reversed = reverseAndClone(node);
+	public boolean isPalindrome(MyLinkedListNode node){
+		MyLinkedListNode reversed = reverseAndClone(node);
 		return isEqual(node, reversed);
 	}
 
-	private boolean isEqual(LinkedListNode node, LinkedListNode reversed) {
+	private boolean isEqual(MyLinkedListNode node, MyLinkedListNode reversed) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
-	private LinkedListNode reverseAndClone(LinkedListNode node) {
-		LinkedListNode head = new LinkedListNode();
+	private MyLinkedListNode reverseAndClone(MyLinkedListNode node) {
+		MyLinkedListNode head = new MyLinkedListNode();
 		while(node!=null)
 		{
 			//assume linkedlist1 = 1 0 2 0 1
 			//linkedli 
-			LinkedListNode n = node.clone();
+			MyLinkedListNode n = node.clone();
 			n.next = head;
 			head = n;
 			
