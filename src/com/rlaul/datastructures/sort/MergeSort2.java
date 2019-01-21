@@ -14,6 +14,7 @@ public class MergeSort2 implements Sort {
 		int[] left = new int[mid]; 
 		int[] right = new int[n-mid];
 		
+		//Divide the array to left and right arrays. 
 		for(int i=0; i<mid; i++) {
 			left[i] = arr[i];
 		}
@@ -35,6 +36,7 @@ public class MergeSort2 implements Sort {
 		int nR = right.length;
 		int i=0,j=0,k=0;
 		
+		//copy smaller elements from left and right arrays to array arr
 		while(i<nL && j<nR) {
 			if(left[i]<=right[j]) {
 				arr[k] = left[i];
@@ -47,13 +49,16 @@ public class MergeSort2 implements Sort {
 			
 			k++;
 		}
-		
+		//this means all right array elements are done and only left array elements are remaining. 
+		//Therefore copy all remaining right elements to arr
 		while(i!=nL) {
 			arr[k] = left[i];
 			i++;
 			k++;
 		}
 		
+		//this means all left array elements are done and only right array elements are remaining. 
+		//Therefore copy all remaining left elements to arr
 		while(j!=nR) {
 			arr[k] = right[j];
 			j++;
