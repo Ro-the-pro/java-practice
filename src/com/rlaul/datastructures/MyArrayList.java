@@ -29,8 +29,7 @@ public class MyArrayList<E>  {
 		{
 			if(elementData[i]==data){
 				elementData[i]=null;
-				elementData[i]=elementData[i+1];
-				size--;
+				condenseArray(i);
 				return true;
 			}
 		}
@@ -47,10 +46,8 @@ public class MyArrayList<E>  {
 		Object value = elementData[index];
 		size--;
 		System.out.println("value being removed:"+value+",size="+size()+",elementData.length="+elementData.length);
-		for(int i=index;i<size;i++)
-		{
-			elementData[i]= elementData[i+1];
-		}
+		condenseArray(index);
+		
 		return (E) value;
 	}
 	catch(Exception e){
@@ -95,7 +92,13 @@ public class MyArrayList<E>  {
 			elementData = Arrays.copyOf(elementData, newSize);
 		}
 	}
-
+	
+    private void condenseArray(int start) {
+        for (int i = start; i < size; i++) {
+        	elementData[i] = elementData[i + 1];
+        }
+    }
+    
 	@Override
 	public String toString() {
 		return Arrays.toString(elementData)+",size="+size();
