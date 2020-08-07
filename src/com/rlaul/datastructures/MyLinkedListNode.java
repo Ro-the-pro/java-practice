@@ -1,5 +1,12 @@
 package com.rlaul.datastructures;
-
+/*
+ * 1 -> 2 -> 3 -> 4 -> 5 -> 6
+ * 
+ * node data to be added:
+ * d=8, between 4 and 5
+ * n.next = 5, n.prev = 4
+ * n.next = this.next, n.prev = this, prev.next = this // 4 -> n-> 5
+ */
 public class MyLinkedListNode {
 	
 	public MyLinkedListNode next;
