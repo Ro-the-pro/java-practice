@@ -1,4 +1,4 @@
-package com.rlaul.datastructures;
+package com.rlaul.datastructures.tests;
 
 import static org.junit.Assert.assertEquals;
 
@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Test;
+
+import com.rlaul.datastructures.MyArrayList;
 
 public class MyArrayListTest {
 

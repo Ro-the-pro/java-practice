@@ -9,6 +9,11 @@ public class MyQueue<T> {
 		public QueueNode(T data){
 			this.data = data;
 		}
+
+		@Override
+		public String toString() {
+			return "QueueNode [data=" + data + ", next=" + next + "]";
+		}
 	}
 		
 	private QueueNode<T> first;
@@ -16,7 +21,9 @@ public class MyQueue<T> {
 	
 	public void add(T item){
 		QueueNode<T> t = new QueueNode<T>(item);
-		last.next = t;
+		if(last!=null) {
+			last.next = t;
+		}
 		last = t;
 		if(first ==null){
 			first = last;
@@ -38,5 +45,56 @@ public class MyQueue<T> {
 	
 	public boolean isEmpty(){
 		return first==null;
+	}
+	
+	public int countItems() {
+		QueueNode<T> i;
+		int t = 0;
+		for (i = first; i != null; i = i.next) {
+			t = t + 1;
+		}
+		return t;
+	}
+	
+	public boolean search(T item) {
+		boolean found = false;
+		QueueNode<T> i;
+		for (i = first; i !=null; i = i.next) {
+			if (i.data == item)
+				found = true;
+				break;
+		}
+		
+		return found;
+	}
+	
+	@Override
+	public String toString() {
+		return "MyQueue [" + first + ",\n count of items="+countItems()+ "]";
+	}
+
+	public static void main(String[] args) {
+		MyQueue q = new MyQueue();
+		q.add(10);
+		q.add(20);
+		q.add(30);
+		q.add(40);
+		q.add(50);
+		
+		System.out.println(q);
+		System.out.println("10 found : "+q.search(10));
+		Object firstItem = q.peek();
+		System.out.println("Peeked Item:"+firstItem);
+		Object removedItem = q.remove();
+		System.out.println("Removed item:"+removedItem);
+		removedItem = q.remove();
+		System.out.println("Removed item:"+removedItem);
+		
+		System.out.println(q);
+		firstItem = q.peek();
+		System.out.println("Peeked Item:"+firstItem);
+		System.out.println("10 found : "+q.search(10));
+		System.out.println("30 found : "+q.search(30));
+		
 	}
 }
