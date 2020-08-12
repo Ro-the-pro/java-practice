@@ -1,6 +1,4 @@
-package com.rlaul.datastructures;
-
-import com.rlaul.greenbook.GraphSearch;
+package com.rlaul.datastructures.graphs;
 
 public class MyNode {
 	MyNode[] neighbors;

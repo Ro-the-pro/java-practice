@@ -1,4 +1,4 @@
-package com.rlaul.greenbook;
+package com.rlaul.datastructures.graphs;
 
 import java.util.Iterator;
 import java.util.LinkedList;

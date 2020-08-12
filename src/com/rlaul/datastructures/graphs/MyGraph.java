@@ -1,4 +1,4 @@
-package com.rlaul.datastructures;
+package com.rlaul.datastructures.graphs;
 
 public class MyGraph {
 	MyNode[] vertices;

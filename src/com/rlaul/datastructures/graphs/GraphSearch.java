@@ -1,9 +1,6 @@
-package com.rlaul.greenbook;
+package com.rlaul.datastructures.graphs;
 
 import java.util.LinkedList;
-
-import com.rlaul.datastructures.MyGraph;
-import com.rlaul.datastructures.MyNode;
 
 public class GraphSearch {
 	
