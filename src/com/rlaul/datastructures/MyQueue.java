@@ -58,13 +58,14 @@ public class MyQueue<T> {
 	
 	public boolean search(T item) {
 		boolean found = false;
-		QueueNode<T> i;
-		for (i = first; i !=null; i = i.next) {
-			if (i.data == item)
+		QueueNode<T> i = first;
+		while(i!=null) {
+			if(i.data == item) {
 				found = true;
 				break;
+			}
+			i = i.next;
 		}
-		
 		return found;
 	}
 	
