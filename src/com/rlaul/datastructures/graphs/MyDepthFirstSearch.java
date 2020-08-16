@@ -11,22 +11,22 @@ import java.util.Stack;
 	// representation
 	public class MyDepthFirstSearch
 	{
-	    private int V;   // No. of vertices
-	    private LinkedList<Integer> adj[]; //Adjacency Lists
+	    private int vertexCount;   // No. of vertices
+	    private LinkedList<Integer> adjacentNodes[]; //Adjacency Lists
 	 
 	    // Constructor
 	    MyDepthFirstSearch(int v)
 	    {
-	        V = v;
-	        adj = new LinkedList[v];
+	        vertexCount = v;
+	        adjacentNodes = new LinkedList[v];
 	        for (int i=0; i<v; ++i)
-	            adj[i] = new LinkedList();
+	            adjacentNodes[i] = new LinkedList();
 	    }
 	 
 	    // Function to add an edge into the graph
 	    void addEdge(int v,int w)
 	    {
-	        adj[v].add(w);
+	        adjacentNodes[v].add(w);
 	    }
 	 
 	    // prints DFS traversal from a given source s
@@ -34,7 +34,7 @@ import java.util.Stack;
 	    {
 	        // Mark all the vertices as not visited(By default
 	        // set as false)
-	        boolean visited[] = new boolean[V];
+	        boolean visited[] = new boolean[vertexCount];
 	 
 	        // Create a stack for DFS
 	        //LinkedList<Integer> stack = new LinkedList<Integer>();
@@ -53,14 +53,14 @@ import java.util.Stack;
 	            // Get all adjacent vertices of the removed vertex s
 	            // If a adjacent has not been visited, then mark it
 	            // visited and enqueue it
-	            Iterator<Integer> i = adj[s].listIterator();
+	            Iterator<Integer> i = adjacentNodes[s].listIterator();
 	            while (i.hasNext())
 	            {
-	                int n = i.next();
-	                if (!visited[n])
+	                int adjacentNode = i.next();
+	                if (!visited[adjacentNode])
 	                {
-	                    visited[n] = true;
-	                    stack.push(n);
+	                    visited[adjacentNode] = true;
+	                    stack.push(adjacentNode);
 	                }
 	            }
 	        }
@@ -81,7 +81,7 @@ import java.util.Stack;
 	        System.out.println("Following is Depth First Traversal "+
 	                           "(starting from vertex 2)");
 	 
-	        g.DFS(2);
+	        g.DFS(0);
 	    }
 	}
 	
