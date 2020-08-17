@@ -6,3 +6,4 @@ Facebook:
 AlienDictionary
 BinaryAddition
 ValidPalindrome
+FindBadVersion
