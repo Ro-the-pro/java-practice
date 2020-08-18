@@ -7,3 +7,4 @@ AlienDictionary
 BinaryAddition
 ValidPalindrome
 FindBadVersion
+TwoStringSum

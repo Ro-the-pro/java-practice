@@ -1,5 +1,7 @@
 package com.rlaul.leetcode.easy;
 
+import static org.junit.Assert.assertEquals;
+
 /**
  * In an alien language, surprisingly they also use english lowercase letters, 
  * but possibly in a different order. The order of the alphabet is some permutation 
@@ -45,7 +47,8 @@ public class AlienDictionary {
     	String[] words2 = {"apple", "app"};
     	
     	AlienDictionary solution = new AlienDictionary();
-    	boolean isSorted = solution.isAlienSorted(words2, order);
+    	boolean isSorted = solution.isAlienSorted(words, order);
+		assertEquals(true, isSorted);
     	System.out.println(isSorted);
     	
     }

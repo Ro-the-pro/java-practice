@@ -1,5 +1,8 @@
 package com.rlaul.leetcode.easy;
 
+import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertEquals;
+
 import java.util.Arrays;
 import java.util.stream.IntStream;
 
@@ -27,7 +30,8 @@ public class RemoveItemFromArray {
 
         // function call removeArrayElement
         oddArray = removeArrayElement(oddArray, index);
-
+        int[] expected = {1, 3, 7, 9, 11};
+		assertArrayEquals(expected, oddArray);
         // Print the resultant array
         System.out.println("Array after deleting element: "  + Arrays.toString(oddArray));
     }
