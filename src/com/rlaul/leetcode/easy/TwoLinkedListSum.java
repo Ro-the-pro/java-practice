@@ -1,7 +1,5 @@
 package com.rlaul.leetcode.easy;
 
-import java.util.List;
-
 /*
  * You are given two non-empty linked lists representing two non-negative integers. 
  * The digits are stored in reverse order and each of their nodes contain a single 
@@ -13,11 +11,20 @@ import java.util.List;
  * Output: 7 -> 0 -> 8
  * Explanation: 342 + 465 = 807.
  */
+
+/*
+ * Just like how you would sum two numbers on a piece of paper, we begin by summing the 
+ * least-significant digits, which is the head of l1 and l2. Since each digit is in the 
+ * range of 0…9, summing two digits may "overflow". For example 5+7=12. 
+ * In this case, we set the current digit to 2 and bring over the carry = 1 to the 
+ * next iteration. carry must be either 0 or 1 because the largest possible sum of 
+ * two digits (including the carry) is 9 + 9 + 1 = 19.
+ */
 public class TwoLinkedListSum {
 
 	public class ListNode {
-		int val;
 		ListNode next;
+		int val;
 
 		ListNode() {
 		}
@@ -26,74 +33,57 @@ public class TwoLinkedListSum {
 			this.val = val;
 		}
 
-		ListNode(int val, ListNode next) {
-			this.val = val;
-			this.next = next;
-		}
-		
-		void setNext(ListNode n) {
-			this.next = n;
-		}
-
 		@Override
 		public String toString() {
-			if(next!=null)
-				return val + " -> " + next;
-			else
-				return Integer.toString(val);
+			return val + " -> " + next;
 		}
 	}
-	
-	public TwoLinkedListSum(ListNode[] nodeList) {
-		for (int i=0; i<nodeList.length-1;i++) {
-			ListNode node = nodeList[i];
-			ListNode nextNode = nodeList[i+1];
-			node.setNext(nextNode);
-		}
-	}
-	
-	public TwoLinkedListSum() {}
 
 	public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-	    ListNode dummyHead = new ListNode(0);
-	    ListNode p = l1, q = l2, curr = dummyHead;
-	    int carry = 0;
-	    while (p != null || q != null) {
-	        int x = (p != null) ? p.val : 0;
-	        int y = (q != null) ? q.val : 0;
-	        int sum = carry + x + y;
-	        carry = sum / 10;
-	        curr.next = new ListNode(sum % 10);
-	        curr = curr.next;
-	        if (p != null) p = p.next;
-	        if (q != null) q = q.next;
-	    }
-	    if (carry > 0) {
-	        curr.next = new ListNode(carry);
-	    }
-	    return dummyHead.next;
+		ListNode dummyNode = new ListNode(0);
+		ListNode current = dummyNode;
+		int carry = 0;
+		while(l1!=null || l2!=null || carry!=0) {
+			int v1 = 0, v2 = 0;
+			if(l1!=null)
+				v1 = l1.val;
+			if(l2!=null)
+				v2 = l2.val;
+			
+			//compute digit
+			int val = v1+v2+carry;
+			carry = val/10;
+			val = val%10;
+			//System.out.println("val:"+val+",carry:"+carry);
+			current.next = new ListNode(val);
+			
+			//update pointer
+			current = current.next;
+			if(l1!=null) 
+				l1 = l1.next;
+			if(l2!=null)
+				l2 = l2.next;
+		}
+		return dummyNode.next;
 	}
-
+	
+	
 	public static void main(String[] args) {
 		TwoLinkedListSum twoLinkedListSum = new TwoLinkedListSum();
-		ListNode l11 = twoLinkedListSum.new ListNode(2);
-		ListNode l12 = twoLinkedListSum.new ListNode(4);
-		ListNode l13 = twoLinkedListSum.new ListNode(3);
-		ListNode[] node1List = {l11, l12, l13};
-		new TwoLinkedListSum(node1List);		
+		ListNode l1 = twoLinkedListSum.new ListNode(2);
+		l1.next= twoLinkedListSum.new ListNode(4);
+		l1.next.next=twoLinkedListSum.new ListNode(3);
+	
+		ListNode l2 = twoLinkedListSum.new ListNode(5);
+		l2.next= twoLinkedListSum.new ListNode(6);
+		l2.next.next=twoLinkedListSum.new ListNode(4);
 		
-		ListNode l21 = twoLinkedListSum.new ListNode(5);
-		ListNode l22 = twoLinkedListSum.new ListNode(6);
-		ListNode l23 = twoLinkedListSum.new ListNode(4);
-		ListNode[] node2List = {l21, l22, l23};
-		new TwoLinkedListSum(node2List);
+		System.out.println(l1);
+		System.out.println(l2);
 		
-		System.out.println(l11);
-		System.out.println(l21);
-		
-		ListNode sum = twoLinkedListSum.addTwoNumbers(l11, l21);
+		ListNode sum = twoLinkedListSum.addTwoNumbers(l1, l2);
 		System.out.println(sum);
-		
 	}
+
 
 }
