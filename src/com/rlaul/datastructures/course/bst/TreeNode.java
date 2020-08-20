@@ -1,12 +1,20 @@
 package com.rlaul.datastructures.course.bst;
 
+
 public class TreeNode {
 	private Integer data;
-	private TreeNode leftChild;
-	private TreeNode rightChild;
+	public TreeNode leftChild;
+	public TreeNode rightChild;
 
 	public TreeNode(Integer data) {
 		this.data = data;
+	}
+	
+
+	public TreeNode(int data, TreeNode left, TreeNode right) {
+		this.data = data;
+		this.leftChild = left;
+		this.rightChild = right;
 	}
 	
 	public static TreeNode addSorted(int[] data, int start, int end) {

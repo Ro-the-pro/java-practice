@@ -9,3 +9,4 @@ ValidPalindrome
 FindBadVersion
 TwoStringSum
 TwoLinkedListSum
+BinaryTreeDiameter

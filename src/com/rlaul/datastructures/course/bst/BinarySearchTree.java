@@ -139,12 +139,12 @@ public class BinarySearchTree {
 		for (int x : sample) {
 			bst.insert(x);
 		}
-		System.out.println(bst.find(65));
-		System.out.println(bst.smallest());
-		System.out.println(bst.largest());
+		System.out.println("Element: " + bst.find(84));
+		System.out.println("smallest: " + bst.smallest());
+		System.out.println("largest: " + bst.largest());
 //		bst.delete(84);
-		System.out.println(bst.numOfLeafNodes());
-		System.out.println(bst.height());
+		System.out.println("numOfLeafNodes: " + bst.numOfLeafNodes());
+		System.out.println("height: " + bst.height());
 		bst.traverseInOrder();
 	}
 }
