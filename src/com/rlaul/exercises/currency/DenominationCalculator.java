@@ -3,15 +3,8 @@
  */
 package com.rlaul.exercises.currency;
 
-import static org.junit.Assert.assertTrue;
-
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
-
-import org.junit.Test;
-
-import com.rlaul.exercises.currency.UsdDenominationService.UsdDenominations;
 
 /**
  * This class calculates the denomination breakdown for an amount based on the currency chosen. 
