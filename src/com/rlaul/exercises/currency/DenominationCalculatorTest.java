@@ -40,8 +40,7 @@ public class DenominationCalculatorTest {
 		expectedValueMap.put("DIME",1);
 		expectedValueMap.put("NICKEL",1);
 		expectedValueMap.put("PENNY", 2);
-		calculator.printMap(expectedValueMap);
-		System.out.println("The amount is broken into:");
+		System.out.println("The amount "+amount+" is broken into:");
 		calculator.printMap(actualResultMap);
 		assertTrue(calculator.areEqualMaps(expectedValueMap,actualResultMap));
 	}
@@ -67,9 +66,7 @@ public class DenominationCalculatorTest {
 		expectedValueMap.put("10c",3);
 		expectedValueMap.put("5c",1);
 		expectedValueMap.put("1c", 2);
-		System.out.println("expectedValueMap:");
-		calculator.printMap(expectedValueMap);
-		System.out.println("actualResultMap:");
+		System.out.println("The amount "+amount+" is broken into:");
 		calculator.printMap(actualResultMap);
 		assertTrue(calculator.areEqualMaps(expectedValueMap,actualResultMap));
 	}
