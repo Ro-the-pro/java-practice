@@ -51,19 +51,21 @@ public class DenominationCalculatorTest {
 		DenominationCalculator calculator = new DenominationCalculator();
 		int amount = 287;
 		
-		Map<String, Integer> usdDenominations = new LinkedHashMap<String, Integer>();
-		usdDenominations.put("TWO_EURO", 100);
-		usdDenominations.put("50c", 50);
-		usdDenominations.put("10c", 10);
-		usdDenominations.put("5c", 5);
-		usdDenominations.put("1c", 1);
-		CurrencyDenominations usdCurrency = new CurrencyDenominations(Currencies.EURO.toString(), usdDenominations);
+		Map<String, Integer> euroDenominations = new LinkedHashMap<String, Integer>();
+		euroDenominations.put("TWO_EURO", 200);
+		euroDenominations.put("50c", 50);
+		euroDenominations.put("20c", 20);
+		euroDenominations.put("10c", 10);
+		euroDenominations.put("5c", 5);
+		euroDenominations.put("1c", 1);
+		CurrencyDenominations usdCurrency = new CurrencyDenominations(Currencies.EURO.toString(), euroDenominations);
 		
 		Map<String, Integer> actualResultMap = calculator.getAmountInDenominations(amount, usdCurrency);
 		Map<String, Integer> expectedValueMap = new LinkedHashMap<String,Integer>();
-		expectedValueMap.put("TWO_EURO",2);
+		expectedValueMap.put("TWO_EURO",1);
 		expectedValueMap.put("50c",1);
-		expectedValueMap.put("10c",3);
+		expectedValueMap.put("20c",1);
+		expectedValueMap.put("10c",1);
 		expectedValueMap.put("5c",1);
 		expectedValueMap.put("1c", 2);
 		System.out.println("The amount "+amount+" is broken into:");
