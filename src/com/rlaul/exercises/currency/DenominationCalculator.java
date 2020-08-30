@@ -14,7 +14,7 @@ import org.junit.Test;
 import com.rlaul.exercises.currency.UsdDenominationService.UsdDenominations;
 
 /**
- * 
+ * This class calculates the denomination breakdown for an amount based on the currency chosen. 
  * @author rohitash
  *
  */
@@ -29,9 +29,15 @@ public class DenominationCalculator {
 		System.out.println();
 	}
 
+	/**
+	 * This method calculates the denominations (bills/coins) for the currency selected. 
+	 * @param amount 
+	 * @param currency
+	 * @return
+	 */
 	public Map<String, Integer> getAmountInDenominations(int amount, CurrencyDenominations currency){
 		String currCode = currency.getCurrencyCode();
-		System.out.println("Currency Code selected: "+currCode+"\n");
+		System.out.println("Currency Code selected: "+currCode);
 		Map<String,Integer> denominationsMap = currency.getDenominations();
 		
 		Map<String,Integer> amountDenMap = new LinkedHashMap<String, Integer>();
@@ -46,6 +52,7 @@ public class DenominationCalculator {
 				amount = amount % denominationValue;
 			}
 			amountDenMap.put(den.toString(), denominationCount);
+			denominationCount = 0;
 		}
 		
 		return amountDenMap;

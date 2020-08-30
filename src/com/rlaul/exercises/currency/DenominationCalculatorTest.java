@@ -38,7 +38,7 @@ public class DenominationCalculatorTest {
 		expectedValueMap.put("DOLLAR",2);
 		expectedValueMap.put("QUARTER",3);
 		expectedValueMap.put("DIME",1);
-		expectedValueMap.put("NICKEL",1);
+		expectedValueMap.put("NICKEL",0);
 		expectedValueMap.put("PENNY", 2);
 		System.out.println("The amount "+amount+" is broken into:");
 		calculator.printMap(actualResultMap);
