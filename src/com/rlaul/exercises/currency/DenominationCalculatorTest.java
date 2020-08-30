@@ -42,6 +42,7 @@ public class DenominationCalculatorTest {
 		expectedValueMap.put("PENNY", 2);
 		System.out.println("The amount "+amount+" is broken into:");
 		calculator.printMap(actualResultMap);
+		
 		assertTrue(calculator.areEqualMaps(expectedValueMap,actualResultMap));
 	}
 	
@@ -58,9 +59,9 @@ public class DenominationCalculatorTest {
 		euroDenominations.put("10c", 10);
 		euroDenominations.put("5c", 5);
 		euroDenominations.put("1c", 1);
-		CurrencyDenominations usdCurrency = new CurrencyDenominations(Currencies.EURO.toString(), euroDenominations);
+		CurrencyDenominations euroCurrency = new CurrencyDenominations(Currencies.EURO.toString(), euroDenominations);
 		
-		Map<String, Integer> actualResultMap = calculator.getAmountInDenominations(amount, usdCurrency);
+		Map<String, Integer> actualResultMap = calculator.getAmountInDenominations(amount, euroCurrency);
 		Map<String, Integer> expectedValueMap = new LinkedHashMap<String,Integer>();
 		expectedValueMap.put("TWO_EURO",1);
 		expectedValueMap.put("50c",1);
@@ -70,6 +71,7 @@ public class DenominationCalculatorTest {
 		expectedValueMap.put("1c", 2);
 		System.out.println("The amount "+amount+" is broken into:");
 		calculator.printMap(actualResultMap);
+		
 		assertTrue(calculator.areEqualMaps(expectedValueMap,actualResultMap));
 	}
 
