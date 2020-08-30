@@ -3,7 +3,15 @@
  */
 package com.rlaul.exercises.currency;
 
+import static org.junit.Assert.assertTrue;
+
+import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
+
+import org.junit.Test;
+
+import com.rlaul.exercises.currency.UsdDenominationService.UsdDenominations;
 
 /**
  * 
@@ -12,44 +20,43 @@ import java.util.Map;
  */
 public class DenominationCalculator {
 	
-	private static String CURRENCY_CODE = "EURO";
-	
-	public static void main(String[] args) {
-		int amount = 287;
-		System.out.println("The currency code is:"+CURRENCY_CODE);
-		CurrencyDenominationService currencyDenominationService = null;
-		
-		currencyDenominationService = initializeDenominationService();
-		
-		Map<String, Integer> currDenMap = currencyDenominationService.getCurrencyDenominations();
-		System.out.println("The currency denominations are:");
-		printInDenominations(currDenMap);
-		
-		Map<String, Integer> denominations = currencyDenominationService.getAmountInDenominations(amount);
-		System.out.println("The amount denominations are:");
-		printInDenominations(denominations);
-	}
+	enum Currencies{USD, EURO}
 
-	private static CurrencyDenominationService initializeDenominationService() {
-		CurrencyDenominationService currencyDenominationService;
-		switch(CURRENCY_CODE)
-		{
-			case "USD":
-				currencyDenominationService = new UsdDenominationService();
-				break;
-			case "EURO":
-				currencyDenominationService = new EuroDenominationService();
-				break;
-			default:
-				currencyDenominationService = new UsdDenominationService();
-		}
-		return currencyDenominationService;
-	}
-
-	private static void printInDenominations(Map<String, Integer> denominationsMap) {
+	public void printMap(Map<String, Integer> denominationsMap) {
 		for(Map.Entry<String,Integer> entry: denominationsMap.entrySet()) {
 			System.out.println(entry.getKey()+":"+entry.getValue());
 		}
 		System.out.println();
 	}
+
+	public Map<String, Integer> getAmountInDenominations(int amount, CurrencyDenominations currency){
+		String currCode = currency.getCurrencyCode();
+		System.out.println("Currency Code selected: "+currCode+"\n");
+		Map<String,Integer> denominationsMap = currency.getDenominations();
+		
+		Map<String,Integer> amountDenMap = new LinkedHashMap<String, Integer>();
+		
+		int denominationCount = 0;
+		
+		for(Map.Entry<String,Integer> entry: denominationsMap.entrySet()) {
+			String den = entry.getKey();
+			int denominationValue = entry.getValue();
+			while(amount > denominationValue) {
+				denominationCount = amount / denominationValue;
+				amount = amount % denominationValue;
+			}
+			amountDenMap.put(den.toString(), denominationCount);
+		}
+		
+		return amountDenMap;
+	}
+
+	public boolean areEqualMaps(Map<String, Integer> first, Map<String, Integer> second) {
+	    if (first.size() != second.size()) {
+	        return false;
+	    }
+	    return first.entrySet().stream()
+	      .allMatch(e -> e.getValue().equals(second.get(e.getKey())));
+	}
+
 }
