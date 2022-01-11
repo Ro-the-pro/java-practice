@@ -16,8 +16,10 @@ public class TwoSum {
             complement = target - x;
             if (twoSumMap.containsKey(complement)){
             	twoSumMap.forEach( (k,v) -> System.out.println(k+":"+v));
+				// index i , index of compliment. 
                 return new int[]{i,twoSumMap.get(complement)};
             }
+			// Put the value as key and the index as value in HashMap
             twoSumMap.put(x,i);
         }
         throw new IllegalArgumentException("No two sum solution");
