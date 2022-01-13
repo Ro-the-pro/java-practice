@@ -27,6 +27,19 @@ public class MergeTwoLists {
 			return l2; 
 		}
 	}
+	
+	// Helper function to print a given linked list
+	public static void printList(ListNode head)
+	{
+		ListNode ptr = head;
+		while (ptr != null)
+		{
+			System.out.print(ptr.val + " —> ");
+			ptr = ptr.next;
+		}
+		
+		System.out.println("null");
+	}
 
 	public static void main(String[] args) {
 		ListNode l14 = new ListNode(4);
@@ -39,7 +52,6 @@ public class MergeTwoLists {
 		
 		MergeTwoLists obj = new MergeTwoLists();
 		ListNode resultListNode = obj.mergeTwoLists(l11, l21);
-		System.out.println(resultListNode);
+		printList(resultListNode);
 	}
-
 }
