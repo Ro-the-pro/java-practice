@@ -3,6 +3,7 @@ package com.rlaul.leetcode.easy;
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertTrue;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 import org.junit.Test;
@@ -18,20 +19,17 @@ public class DuplicateNumbers {
 	}
 	
 	public int[] removeDuplicates(int[] nums) {
-		//System.out.println("raw input:"+nums);
 		Arrays.sort(nums);
-		//System.out.println("sorted input:"+nums);
-		int[] newNums = new int[nums.length];
-		int j=0;
+		ArrayList<Integer> nodupeslist = new ArrayList<Integer>();
 		
 		for (int i=0;i<nums.length-1;i++) {
 			if(nums[i]!=nums[i+1]) {
-				newNums[j] = nums[i];
-				j++;
+				nodupeslist.add(nums[i]);
 			}
 		}
-		//System.out.println("without duplicates:"+newNums);
-		return newNums ;
+		//int[] outputArray = nodupeslist.stream().mapToInt(i -> i).toArray();
+		int[] outputArray = nodupeslist.stream().mapToInt(Integer::intValue).toArray();
+		return outputArray;
 	}
 	
 	@Test
