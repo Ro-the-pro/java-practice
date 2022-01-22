@@ -27,6 +27,7 @@ public class DuplicateNumbers {
 				nodupeslist.add(nums[i]);
 			}
 		}
+		nodupeslist.add(nums[nums.length-1]);
 		//int[] outputArray = nodupeslist.stream().mapToInt(i -> i).toArray();
 		int[] outputArray = nodupeslist.stream().mapToInt(Integer::intValue).toArray();
 		return outputArray;
@@ -34,19 +35,26 @@ public class DuplicateNumbers {
 	
 	@Test
 	public void  testContainDuplicates() {
-		int[] input = {1,3, 7,9,11,11,9,7,3,3,1};
+		int[] input = {1,3,7,9,11,11,9,7,3,3,1};
 		boolean hasDuplicates = containDuplicates(input);
         
 		assertTrue(hasDuplicates);
 	}
-	
 	
 	@Test
 	public void  testRemoveDuplicates() {
 		int[] input = {1,3, 7,9,11,11,9,7,3,3,1};
 		int[] actual = removeDuplicates(input);
         int[] expected = {1, 3, 7, 9, 11};
-		//assertArrayEquals(expected, actual);
+		assertArrayEquals(expected, actual);
+	}
+	
+	@Test
+	public void  testRemoveDuplicates2() {
+		int[] input = {1,3,5,7,9,11,9,7,3,1};
+		int[] actual = removeDuplicates(input);
+        int[] expected = {1, 3, 5, 7, 9, 11};
+		assertArrayEquals(expected, actual);
 	}
 	
 	
