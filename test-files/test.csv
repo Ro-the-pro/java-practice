@@ -1,4 +1,4 @@
-name,department,birthday month
+full-name,department,birth-month
 John Smith,Accounting,November
-Erica Meyers,IT,March
+Erica Meyers,Info Technology,March
 "James Gosling","Finance","October"
