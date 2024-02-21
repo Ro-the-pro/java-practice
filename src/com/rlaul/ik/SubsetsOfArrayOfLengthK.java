@@ -42,12 +42,12 @@ public class SubsetsOfArrayOfLengthK {
 			return;
 		}
 		
-		//include
+		//include number
 		partial.add(inputList.get(index));
 		System.out.println(index+":with:"+partial.toString());
 		subsetHelper(inputList, r, index+1, partial, resultList);
 
-		//exclude
+		//exclude number
 		partial.remove(inputList.get(index));
 		System.out.println(index+":without:"+partial.toString());
 		subsetHelper(inputList, r, index+1, partial, resultList);
