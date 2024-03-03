@@ -1,4 +1,4 @@
-package com.rlaul.leetcode;
+package com.rlaul.leetcode.easy;
 
 /**
  * Given a number ‘n’, write a program to get the sum of all prime numbers from 0 to n.

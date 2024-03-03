@@ -1,4 +1,4 @@
-package com.rlaul.leetcode;
+package com.rlaul.leetcode.medium;
 
 import java.util.Arrays;
 
