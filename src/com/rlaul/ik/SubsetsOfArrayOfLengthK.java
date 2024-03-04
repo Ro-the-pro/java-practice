@@ -17,11 +17,12 @@ public class SubsetsOfArrayOfLengthK {
 
 	}
 	
-	private static void getSubsets(List<Integer> input, int i) {
+	private static int getSubsets(List<Integer> input, int i) {
 		List<HashSet<Integer>> resultSet = new ArrayList<HashSet<Integer>>();
 		subsetHelper(input , 2, 0, new HashSet<Integer>(), resultSet);
 		
-		System.out.println("Result:\n"+resultSet);		
+		System.out.println("Result:\n"+resultSet);	
+		return resultSet!=null?resultSet.size():0;
 	}
 
 	static void subsetHelper( List<Integer> inputList, int r,  int index, HashSet<Integer> partial, List<HashSet<Integer>> resultList) {
@@ -44,12 +45,10 @@ public class SubsetsOfArrayOfLengthK {
 		
 		//include number
 		partial.add(inputList.get(index));
-		System.out.println(index+":with:"+partial.toString());
 		subsetHelper(inputList, r, index+1, partial, resultList);
 
 		//exclude number
 		partial.remove(inputList.get(index));
-		System.out.println(index+":without:"+partial.toString());
 		subsetHelper(inputList, r, index+1, partial, resultList);
 	}
 
