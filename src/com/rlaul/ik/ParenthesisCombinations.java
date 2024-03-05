@@ -54,7 +54,7 @@ public class ParenthesisCombinations {
 	static void printAllParanthesis(int n) {
 
 		for (int i = 1; i <= n; i++) {
-			StringBuilder sb = new StringBuilder();
+		StringBuffer sb = new StringBuffer();
 			// lazy manager
 			printHelper(sb, 0, 0, i);
 			System.out.println();
@@ -62,7 +62,7 @@ public class ParenthesisCombinations {
 
 	}
 
-	private static void printHelper(StringBuilder current, int openCtr, int closeCtr, int n) {
+	private static void printHelper(StringBuffer current, int openCtr, int closeCtr, int n) {
 		char openChar = '(';
 		char closeChar = ')';
 
@@ -86,6 +86,5 @@ public class ParenthesisCombinations {
 			printHelper(current, openCtr, closeCtr + 1, n);
 			current.deleteCharAt(current.length() - 1);
 		}
-
 	}
 }
