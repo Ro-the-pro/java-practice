@@ -34,24 +34,15 @@ public class NChooseKCombinations {
 	}
 
 	static ArrayList<ArrayList<Integer>> find_combinations(Integer n, Integer k) {
-    	ArrayList<Integer> combination = new ArrayList<Integer>();
     	ArrayList<ArrayList<Integer>> resultList = new ArrayList<ArrayList<Integer>>();
-    	
-    	combination = helper(new ArrayList<Integer>(), n, k);
-    	resultList.add(combination);
+    	helper(resultList, new ArrayList<Integer>(), n, k);
         return resultList;
     }
 
-	static ArrayList<Integer> helper(ArrayList<Integer> combination, int n, int k) {
+	static void helper(ArrayList<ArrayList<Integer>> resultList, ArrayList<Integer> combination, int n, int k) {
 		if(combination.size() ==k) {  //to ensure that the size of each comb is exactly =k. 
-			System.out.print("[");
-			for(int j=0;j<combination.size();j++) {
-    			System.out.print(combination.get(j));
-    			if(j!=k-1)
-    				System.out.print(",");
-    		}
-			System.out.print("]\n");
-			return combination;
+			 resultList.add(new ArrayList<>(combination)); // Add a new copy of the combination
+			return;
 		}
 		
 		for (int j=1;j<=n;j++) //numbers from 1 to n are added
@@ -59,12 +50,11 @@ public class NChooseKCombinations {
 			if(!combination.contains(j)) // avoid printing same number combination
 			{
 				combination.add(j); 
-				helper(combination, n, k);
+				helper(resultList, combination, n, k);
 				combination.remove(combination.size() - 1);
 			}
 		}
 		
-		return combination;
 	}
 	
 
