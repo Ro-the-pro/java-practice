@@ -29,43 +29,37 @@ import java.util.ArrayList;
 public class NChooseKCombinations {
 
 	public static void main(String[] args) {
-		
 		ArrayList<ArrayList<Integer>> resultList = find_combinations(5,2);
-		
 		printResult(resultList);
-
 	}
-	
-
-
 
 	static ArrayList<ArrayList<Integer>> find_combinations(Integer n, Integer k) {
     	ArrayList<Integer> combination = new ArrayList<Integer>();
     	ArrayList<ArrayList<Integer>> resultList = new ArrayList<ArrayList<Integer>>();
     	
     	combination = helper(new ArrayList<Integer>(), 0, 0, n, k);
-    	
     	resultList.add(combination);
-    	 
         return resultList;
     }
 
 	static ArrayList<Integer> helper(ArrayList<Integer> combination, int num, int count, int n, int k) {
-		
-		
 		if(combination.size() ==k) {
 			System.out.print("[");
 			for(int j=0;j<combination.size();j++) {
-    			System.out.print(combination.get(j)+",");
+    			System.out.print(combination.get(j));
+    			if(j!=k-1)
+    				System.out.print(",");
     		}
 			System.out.print("]\n");
 			return combination;
 		}
 		
 		for (int j=1;j<=n;j++) {
-			combination.add(j);
-			helper(combination, j+1,0, n, k) ;
-			combination.remove(combination.size()-1);
+			if(!combination.contains(j)) {
+				combination.add(j);
+				helper(combination, j + 1, 0, n, k);
+				combination.remove(combination.size() - 1);
+			}
 		}
 		
 		return combination;
