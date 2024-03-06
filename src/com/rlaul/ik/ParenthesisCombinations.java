@@ -75,8 +75,7 @@ public class ParenthesisCombinations {
 		if (openCtr < n) {
 			current.append(openChar);
 			printHelper(current, openCtr + 1, closeCtr, n);
-			// removing the newly added character for printing the next combination of
-			// parenthesis
+			// removing the newly added character for printing the next combination of parenthesis
 			current.deleteCharAt(current.length() - 1);
 		}
 
