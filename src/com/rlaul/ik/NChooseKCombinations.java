@@ -37,13 +37,13 @@ public class NChooseKCombinations {
     	ArrayList<Integer> combination = new ArrayList<Integer>();
     	ArrayList<ArrayList<Integer>> resultList = new ArrayList<ArrayList<Integer>>();
     	
-    	combination = helper(new ArrayList<Integer>(), 0, 0, n, k);
+    	combination = helper(new ArrayList<Integer>(), n, k);
     	resultList.add(combination);
         return resultList;
     }
 
-	static ArrayList<Integer> helper(ArrayList<Integer> combination, int num, int count, int n, int k) {
-		if(combination.size() ==k) {
+	static ArrayList<Integer> helper(ArrayList<Integer> combination, int n, int k) {
+		if(combination.size() ==k) {  //to ensure that the size of each comb is exactly =k. 
 			System.out.print("[");
 			for(int j=0;j<combination.size();j++) {
     			System.out.print(combination.get(j));
@@ -54,10 +54,12 @@ public class NChooseKCombinations {
 			return combination;
 		}
 		
-		for (int j=1;j<=n;j++) {
-			if(!combination.contains(j)) {
-				combination.add(j);
-				helper(combination, j + 1, 0, n, k);
+		for (int j=1;j<=n;j++) //numbers from 1 to n are added
+		{
+			if(!combination.contains(j)) // avoid printing same number combination
+			{
+				combination.add(j); 
+				helper(combination, n, k);
 				combination.remove(combination.size() - 1);
 			}
 		}
@@ -72,7 +74,9 @@ public class NChooseKCombinations {
     		ArrayList<Integer> comb = resultList.get(i);
     		System.out.print("[");
     		for(int j=0;j<comb.size();j++) {
-    			System.out.print(comb.get(j)+",");
+    			System.out.print(comb.get(j));
+    			if(j!=comb.size()-1)
+    				System.out.print(",");
     		}
     		System.out.print("]");
     	}
