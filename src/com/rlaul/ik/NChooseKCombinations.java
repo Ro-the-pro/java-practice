@@ -34,45 +34,42 @@ public class NChooseKCombinations {
 	}
 
 	static ArrayList<ArrayList<Integer>> find_combinations(Integer n, Integer k) {
-    	ArrayList<ArrayList<Integer>> resultList = new ArrayList<ArrayList<Integer>>();
-    	helper(resultList, new ArrayList<Integer>(), n, k);
+        ArrayList<Integer> combination = new ArrayList<Integer>();
+        ArrayList<ArrayList<Integer>> resultList = new ArrayList<ArrayList<Integer>>();
+
+        helper(resultList, new ArrayList<Integer>(), n, k, 1);
         return resultList;
     }
 
-	static void helper(ArrayList<ArrayList<Integer>> resultList, ArrayList<Integer> combination, int n, int k) {
-		if(combination.size() ==k) {  //to ensure that the size of each comb is exactly =k. 
-			 resultList.add(new ArrayList<>(combination)); // Add a new copy of the combination
-			return;
-		}
-		
-		for (int j=1;j<=n;j++) //numbers from 1 to n are added
-		{
-			if(!combination.contains(j)) // avoid printing same number combination
-			{
-				combination.add(j); 
-				helper(resultList, combination, n, k);
-				combination.remove(combination.size() - 1);
-			}
-		}
-		
-	}
-	
+    static void helper(ArrayList<ArrayList<Integer>> resultList, ArrayList<Integer> combination, int n, int k, int start) {
+        if (combination.size() == k) {
+            resultList.add(new ArrayList<>(combination)); // Add a new copy of the combination
+            return;
+        }
+
+        for (int j = start; j <= n; j++) {
+        	System.out.println("j:"+j+", start:"+start);
+            combination.add(j);
+            helper(resultList, combination, n, k, j + 1);
+            combination.remove(combination.size() - 1);
+        }
+    }
 
     private static void printResult(ArrayList<ArrayList<Integer>> resultList) {
-    	System.out.print("[");
-    	for(int i= 0;i<resultList.size();i++) {
-    		ArrayList<Integer> comb = resultList.get(i);
-    		System.out.print("[");
-    		for(int j=0;j<comb.size();j++) {
-    			System.out.print(comb.get(j));
-    			if(j!=comb.size()-1)
-    				System.out.print(",");
-    		}
-    		System.out.print("]");
-    	}
-    	System.out.print("]");
-		
-	}
+        System.out.print("[");
+        for (int i = 0; i < resultList.size(); i++) {
+            ArrayList<Integer> comb = resultList.get(i);
+            System.out.print("[");
+            for (int j = 0; j < comb.size(); j++) {
+                System.out.print(comb.get(j));
+                if (j != comb.size() - 1)
+                    System.out.print(",");
+            }
+            System.out.print("]");
+        }
+        System.out.print("]");
+    }
+
 	
 
 }
