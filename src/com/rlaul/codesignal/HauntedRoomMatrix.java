@@ -1,4 +1,5 @@
-package com.rlaul.exercises;
+package com.rlaul.codesignal;
+
 /**
  * After becoming famous, the CodeBots decided to move into a new building together. 
  * Each of the rooms has a different cost, and some of them are free, but there's a 

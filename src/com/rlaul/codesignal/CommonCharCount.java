@@ -1,4 +1,4 @@
-package com.rlaul.exercises;
+package com.rlaul.codesignal;
 
 import java.util.Collection;
 import java.util.HashMap;

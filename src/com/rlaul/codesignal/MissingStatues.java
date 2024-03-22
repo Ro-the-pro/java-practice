@@ -1,4 +1,5 @@
-package com.rlaul.exercises;
+package com.rlaul.codesignal;
+
 
 import java.util.Arrays;
 /*

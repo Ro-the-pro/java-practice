@@ -1,4 +1,4 @@
-package com.rlaul.exercises;
+package com.rlaul.codesignal;
 
 /*
  * Given a sequence of integers as an array, determine whether it is possible to obtain a strictly
