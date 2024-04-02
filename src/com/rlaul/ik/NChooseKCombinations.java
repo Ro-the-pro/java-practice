@@ -34,7 +34,6 @@ public class NChooseKCombinations {
 	}
 
 	static ArrayList<ArrayList<Integer>> find_combinations(Integer n, Integer k) {
-        ArrayList<Integer> combination = new ArrayList<Integer>();
         ArrayList<ArrayList<Integer>> resultList = new ArrayList<ArrayList<Integer>>();
 
         helper(resultList, new ArrayList<Integer>(), n, k, 1);
