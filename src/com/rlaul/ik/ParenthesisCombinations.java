@@ -56,25 +56,27 @@ public class ParenthesisCombinations {
 		for (int i = 1; i <= n; i++) {
 		StringBuffer sb = new StringBuffer();
 			// lazy manager
-			printHelper(sb, 0, 0, i);
-			System.out.println();
+			printHelper(sb, 0, 0, "", i);
+			System.out.println(sb);
 		}
 
 	}
 
-	private static void printHelper(StringBuffer current, int openCtr, int closeCtr, int n) {
+	private static void printHelper(StringBuffer current, int openCtr, int closeCtr, String s, int n) {
 		char openChar = '(';
 		char closeChar = ')';
 
 		// base case
 		if (openCtr == n && closeCtr == openCtr) {
-			System.out.print(current.append(" "));
+			current.append(s);
+			return;
+			//System.out.print(current.append(" "));
 		}
 
 		// Add open brackets
 		if (openCtr < n) {
 			current.append(openChar);
-			printHelper(current, openCtr + 1, closeCtr, n);
+			printHelper(current, openCtr + 1, closeCtr, s+openChar, n);
 			// removing the newly added character for printing the next combination of parenthesis
 			current.deleteCharAt(current.length() - 1);
 		}
@@ -82,7 +84,7 @@ public class ParenthesisCombinations {
 		// Add close brackets
 		if (openCtr > closeCtr) {
 			current.append(closeChar);
-			printHelper(current, openCtr, closeCtr + 1, n);
+			printHelper(current, openCtr, closeCtr + 1, s+closeChar, n);
 			current.deleteCharAt(current.length() - 1);
 		}
 	}
