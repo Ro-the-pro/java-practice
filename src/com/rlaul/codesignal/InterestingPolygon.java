@@ -1,4 +1,4 @@
-package com.rlaul.exercises;
+package com.rlaul.codesignal;
 
 /**
  * A 1-interesting polygon is just a square with a side of length 1. An
