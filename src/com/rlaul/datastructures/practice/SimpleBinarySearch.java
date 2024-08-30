@@ -1,5 +1,10 @@
 package com.rlaul.datastructures.practice;
 
+import static org.junit.Assert.assertEquals;
+
+import org.junit.Test;
+
+
 public class SimpleBinarySearch {
 	
 	static int numberofTries = 0;
@@ -25,15 +30,21 @@ public class SimpleBinarySearch {
 		return -1;
 	}
 	
-	public static void main(String[] args) {
+	
+	@Test
+	public void testValid() {
 		int arr[] = {1,2,3,4,5,6,7,8,9,10};
 		int target = 6;
 		int index = binarySearch(arr, 0, arr.length-1, target);
-		if (index == -1)
-			System.out.println("number not found");
-		else
-			System.out.println("index:"+index+" , number of tries:"+numberofTries);
-		
+		assertEquals(index,  5);
+		assertEquals(numberofTries, 8);
 	}
 
+	@Test
+	public void testNotFound() {
+		int arr[] = {1,2,3,4,5,6,7,8,9,10};
+		int target = 11;
+		int index = binarySearch(arr, 0, arr.length-1, target);
+		assertEquals(index, -1 );
+	}
 }
